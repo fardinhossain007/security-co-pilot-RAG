@@ -118,6 +118,7 @@ ollama serve
 4. Build vector store:
 
 ```bash
+./scripts/fetch_data.sh
 python app/ingest.py
 ```
 
@@ -159,6 +160,24 @@ curl -X POST http://localhost:8000/ask \
     "audit_mode": true
   }'
 ```
+
+## Data Setup
+
+The project keeps raw source PDFs out of Git history and fetches them from official sources.
+
+Fetch data automatically:
+
+```bash
+./scripts/fetch_data.sh
+```
+
+This script downloads into `data/raw/`:
+- `NIST.CSWP.29.pdf`
+- `NIST.SP.800-61r3.pdf`
+- `NIST.SP.1299.pdf`
+- `OWASP-Top-10-for-LLMs-v2025.pdf`
+
+If a download URL changes upstream, the script will tell you which file to place manually.
 
 ## Example Output Format
 

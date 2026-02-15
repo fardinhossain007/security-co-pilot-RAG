@@ -38,7 +38,8 @@ temp/
 # Local data artifacts
 # ------------------------------
 data/chroma/
-data/raw/
+data/chroma/.DS_Store
+data/raw/*
 !data/raw/.gitkeep
 
 # ------------------------------
