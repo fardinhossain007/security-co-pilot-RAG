@@ -37,7 +37,7 @@ Version note:
 
 ```mermaid
 flowchart TB
-  subgraph OFF["Offline Ingestion / Indexing"]
+  subgraph OFF["Offline Ingestion/Indexing"]
     direction LR
     RAW["PDF Documents<br/>data/raw"] --> ING["Ingestion<br/>app/ingest.py"]
     ING --> CLEAN["Text Cleaning + Chunking"]
@@ -45,8 +45,7 @@ flowchart TB
     EMB --> CHROMA["Chroma Vector Store<br/>data/chroma"]
   end
 
-  subgraph ON["Online Retrieval
-  / Answering"]
+  subgraph ON["Online Retrieval/Answering"]
     direction LR
     USER["User"] --> UI["Streamlit UI<br/>app/ui.py"]
     USER --> API["FastAPI<br/>app/api.py (/ask)"]
