@@ -69,6 +69,49 @@ flowchart TB
   end
 ```
 
+```mermaid
+flowchart TB
+  subgraph OFF["Offline Ingestion / Index Build"]
+    direction LR
+    D1["PDF files in data/raw"] --> I1["app/ingest.py::load_pdfs()"]
+    I1 --> I2["clean_text() + metadata (source_file, page_number)"]
+    I2 --> I3["split_docs() with RecursiveCharacterTextSplitter"]
+    I3 --> I4["build_vectorstore() using HuggingFaceEmbeddings + Chroma.from_documents"]
+    I4 --> D2["Persisted vector index in data/chroma"]
+  end
+
+  subgraph RUN["Online Retrieval / Answering (Per Request)"]
+    direction LR
+    U["User"] --> UI["Streamlit (app/ui.py)"]
+    U --> API["FastAPI POST /ask (app/api.py)"]
+
+    UI --> ASK["ask(question, k, model, audit_mode) in app/rag.py"]
+    API --> ASK
+
+    ASK --> K["if audit_mode=True then k=10"]
+    K --> LVS["load_vectorstore() from data/chroma"]
+    LVS --> RET["retrieve() via max_marginal_relevance_search"]
+    RET --> CTX["format_context() into numbered chunks [1..k]"]
+    CTX --> LLM["ChatOllama.invoke() with system + user prompts"]
+    LLM --> POST["normalize_answer() in app/postprocess.py"]
+    POST --> OUT["return dict: answer, citations(used), retrieved(all), k, audit_mode"]
+
+    OUT --> UIRESP["Streamlit renders answer + citations + context"]
+    OUT --> APIRESP["FastAPI returns JSON response"]
+  end
+
+  subgraph EVAL["Deterministic Local Evaluation"]
+    direction LR
+    Q["eval/questions.json"] --> E1["eval/run_local_eval.py"]
+    E1 --> R1["Pass 1: retrieve() contexts for all questions"]
+    R1 --> R2["Build IDF and overlap baselines"]
+    R2 --> R3["Pass 2: ask() per question"]
+    R3 --> M["Compute metrics (citation + format + overlap)"]
+    M --> O["Write eval/local_eval_metrics_k*.csv and .md"]
+  end
+
+```
+
 Detailed architecture notes: `docs/architecture.md`.
 
 ## Repository Structure
