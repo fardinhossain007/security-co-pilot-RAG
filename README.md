@@ -45,7 +45,8 @@ flowchart TB
     EMB --> CHROMA["Chroma Vector Store<br/>data/chroma"]
   end
 
-  subgraph ON["Online Retrieval / Answering"]
+  subgraph ON["Online Retrieval
+  / Answering"]
     direction LR
     USER["User"] --> UI["Streamlit UI<br/>app/ui.py"]
     USER --> API["FastAPI<br/>app/api.py (/ask)"]
