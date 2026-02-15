@@ -45,9 +45,7 @@ flowchart TB
   classDef output fill:#EAFBF0,stroke:#15803D,stroke-width:1px,color:#123B1E;
 
   %% 1) OFFLINE
-  subgraph S1["1. Offline Ingestion and Indexing
-
-"]
+  subgraph S1["1. Offline Ingestion and Indexing"]
     direction TB
     A["Raw PDFs<br/>data/raw"]:::data
     B["Load + Clean + Metadata<br/>app/ingest.py"]:::process
