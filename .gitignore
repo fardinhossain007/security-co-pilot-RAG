@@ -1,0 +1,53 @@
+# ------------------------------
+# OS / editor
+# ------------------------------
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+.Rhistory
+
+# ------------------------------
+# Python / virtualenv / tooling
+# ------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.env
+.env.*
+
+# ------------------------------
+# Logs / temp
+# ------------------------------
+*.log
+tmp/
+temp/
+
+# ------------------------------
+# Local data artifacts
+# ------------------------------
+data/chroma/
+data/raw/
+!data/raw/.gitkeep
+
+# ------------------------------
+# Generated evaluation outputs
+# ------------------------------
+eval/*.csv
+eval/*.md
+!eval/questions.json
+!eval/local_eval_metrics_k8.csv
+!eval/local_eval_metrics_k8.md
+!eval/local_eval_metrics_k10.csv
+!eval/local_eval_metrics_k10.md

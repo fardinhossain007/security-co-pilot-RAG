@@ -1,0 +1,16 @@
+id,question,top_k,num_bullets,citation_coverage,has_any_citation,has_answer_heading,has_cited_sources_heading,bullet_count_valid_1to5,bullet_end_citation_rate,valid_citation_id_rate,avg_overlap,min_overlap,avg_weighted_overlap,min_weighted_overlap
+Q01,What are the CSF 2.0 Functions?,8,5,1.0,1,1,1,1,1.0,1.0,0.9636363636363636,0.8181818181818182,0.9581911076284119,0.7909555381420597
+Q02,"In CSF 2.0, what is the purpose of the GOVERN function?",8,1,0.0,0,1,0,1,0.0,0.0,0.2,0.2,0.12136819464581022,0.12136819464581022
+Q03,"According to CSF 2.0, why should the Functions be addressed concurrently?",8,1,0.0,0,1,0,1,0.0,0.0,0.2,0.2,0.12136819464581022,0.12136819464581022
+Q04,"According to NIST SP 800-61r3, what is incident response in the context of cybersecurity risk management?",8,5,1.0,1,1,1,1,1.0,1.0,0.8857273576097106,0.75,0.8822469447477166,0.7368808266653342
+Q05,"According to NIST SP 800-61r3, what is the relationship between incident response and risk management?",8,5,1.0,1,1,1,1,1.0,1.0,0.95,0.75,0.9353755008979711,0.676877504489855
+Q06,"From NIST SP 800-61r3, name two factors used to prioritize incidents.",8,5,1.0,1,1,1,1,1.0,1.0,0.7590686274509804,0.6666666666666666,0.7471910711584597,0.645925221611612
+Q07,"From NIST SP 800-61r3, why might an organization balance recovery with investigation or observation?",8,1,0.0,0,1,0,1,0.0,0.0,0.2,0.2,0.20388395097623685,0.20388395097623685
+Q08,What is prompt injection according to OWASP Top 10 for LLM Applications 2025?,8,5,1.0,1,1,1,1,1.0,1.0,0.9678362573099415,0.8947368421052632,0.973122738097128,0.8940226086113489
+Q09,Why is prompt injection risky (give two risks) according to OWASP Top 10 for LLM Applications 2025?,8,5,1.0,1,1,1,1,1.0,1.0,0.967251461988304,0.8888888888888888,0.969995540463802,0.9170247285032992
+Q10,"From OWASP Top 10 for LLM Applications 2025, give one mitigation idea for prompt injection.",8,4,1.0,1,1,1,1,1.0,1.0,0.9052318295739349,0.8333333333333334,0.9378900005026357,0.9033150144937518
+Q11,"From OWASP Top 10 for LLM Applications 2025, what is the general idea behind sensitive information disclosure risks for LLM apps?",8,5,1.0,1,1,1,1,1.0,1.0,0.9397316821465427,0.8947368421052632,0.9514785314259425,0.9238527224633843
+Q12,"In CSF 2.0, how do GOVERN and IDENTIFY contribute to cybersecurity incidents?",8,5,1.0,1,1,1,1,1.0,1.0,0.5660259344012204,0.4666666666666667,0.5669867042311113,0.44528680356767897
+Q13,"According to CSF 2.0, which Functions are most directly involved when incidents occur?",8,1,0.0,0,1,0,1,0.0,0.0,0.2,0.2,0.12136819464581022,0.12136819464581022
+Q14,"From NIST SP 800-61r3, what is the importance of communicating current and planned activities during incident response?",8,1,0.0,0,1,0,1,0.0,0.0,0.0,0.0,0.0,0.0
+Q15,"From OWASP Top 10 for LLM Applications 2025, give one example of a consequence of successful prompt injection in an LLM app connected to tools.",8,5,1.0,1,1,1,1,1.0,1.0,0.9508589655958076,0.9,0.9599325111959777,0.9068452982977252

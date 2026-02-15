@@ -1,0 +1,17 @@
+[
+  {"id":"Q01","question":"What are the CSF 2.0 Functions?"},
+  {"id":"Q02","question":"In CSF 2.0, what is the purpose of the GOVERN function?"},
+  {"id":"Q03","question":"According to CSF 2.0, why should the Functions be addressed concurrently?"},
+  {"id":"Q04","question":"According to NIST SP 800-61r3, what is incident response in the context of cybersecurity risk management?"},
+  {"id":"Q05","question":"According to NIST SP 800-61r3, what is the relationship between incident response and risk management?"},
+  {"id":"Q06","question":"From NIST SP 800-61r3, name two factors used to prioritize incidents."},
+  {"id":"Q07","question":"From NIST SP 800-61r3, why might an organization balance recovery with investigation or observation?"},
+  {"id":"Q08","question":"What is prompt injection according to OWASP Top 10 for LLM Applications 2025?"},
+  {"id":"Q09","question":"Why is prompt injection risky (give two risks) according to OWASP Top 10 for LLM Applications 2025?"},
+  {"id":"Q10","question":"From OWASP Top 10 for LLM Applications 2025, give one mitigation idea for prompt injection."},
+  {"id":"Q11","question":"From OWASP Top 10 for LLM Applications 2025, what is the general idea behind sensitive information disclosure risks for LLM apps?"},
+  {"id":"Q12","question":"In CSF 2.0, how do GOVERN and IDENTIFY contribute to cybersecurity incidents?"},
+  {"id":"Q13","question":"According to CSF 2.0, which Functions are most directly involved when incidents occur?"},
+  {"id":"Q14","question":"From NIST SP 800-61r3, what is the importance of communicating current and planned activities during incident response?"},
+  {"id":"Q15","question":"From OWASP Top 10 for LLM Applications 2025, give one example of a consequence of successful prompt injection in an LLM app connected to tools."}
+]
