@@ -69,10 +69,8 @@ flowchart TB
   end
 ```
 ```mermaid
-flowchart LR
-  %% =====================
+flowchart TB
   %% STYLES
-  %% =====================
   classDef data fill:#E8F1FF,stroke:#2F6FEB,stroke-width:1px,color:#0B1F44;
   classDef process fill:#F4F7FA,stroke:#7A8AA0,stroke-width:1px,color:#0F172A;
   classDef model fill:#FFF4E5,stroke:#D97706,stroke-width:1px,color:#4A2A00;
@@ -80,10 +78,8 @@ flowchart LR
 
   linkStyle default stroke:#64748B,stroke-width:1.2px;
 
-  %% =====================
-  %% 1) OFFLINE
-  %% =====================
-  subgraph S1["1) Offline Ingestion & Indexing"]
+  %% BAND 1
+  subgraph S1["1. Offline Ingestion & Indexing"]
     direction LR
     A["Raw PDFs<br/>data/raw"]:::data
     B["Load + Clean + Metadata<br/>app/ingest.py"]:::process
@@ -93,27 +89,24 @@ flowchart LR
     A --> B --> C --> D --> E
   end
 
-  %% =====================
-  %% 2) ONLINE
-  %% =====================
-  subgraph S2["2) Online Retrieval & Answering"]
+  %% BAND 2
+  subgraph S2["2. Online Retrieval & Answering"]
     direction LR
     U["User Question"]:::data
     EP["Entry Points<br/>Streamlit (app/ui.py)<br/>FastAPI /ask (app/api.py)"]:::process
     ORCH["RAG Orchestrator<br/>ask() in app/rag.py"]:::process
-    K["Top-k Selection<br/>audit_mode => k=10"]:::process
     RET["Retrieve Context<br/>MMR Search over Chroma"]:::process
+    K["Top-k Selection<br/>audit_mode => k=10"]:::process
     PROMPT["Prompt Assembly<br/>SYSTEM + numbered chunks"]:::process
     LLM["Generate Answer<br/>ChatOllama"]:::model
     POST["Post-process<br/>app/postprocess.py<br/>filter/normalize citations"]:::process
     OUT["Final Response<br/>answer + citations + retrieved"]:::output
-    U --> EP --> ORCH --> K --> RET --> PROMPT --> LLM --> POST --> OUT
+
+    U --> EP --> ORCH --> RET --> K --> PROMPT --> LLM --> POST --> OUT
   end
 
-  %% =====================
-  %% 3) EVAL
-  %% =====================
-  subgraph S3["3) Deterministic Evaluation"]
+  %% BAND 3
+  subgraph S3["3. Deterministic Evaluation"]
     direction LR
     Q["Question Set<br/>eval/questions.json"]:::data
     EV["run_local_eval.py"]:::process
@@ -124,11 +117,10 @@ flowchart LR
     Q --> EV --> P1 --> P2 --> M --> R
   end
 
-  %% =====================
-  %% CROSS-STAGE LINKS
-  %% =====================
-  E -. "Vector store used by retrieval" .-> RET
-  EV -. "Calls ask()" .-> ORCH
+  %% Cross-stage links (more readable)
+  E -. "Chroma index" .-> RET
+  EV -. "Invokes ask()" .-> ORCH
+
 ```
 
 
