@@ -11,7 +11,6 @@ Supported corpus:
 - NIST CSF 2.0 (`NIST.CSWP.29`)
 - NIST SP 800-61r3
 - OWASP Top 10 for LLM Applications 2025
-- NIST.SP.1299
 
 ## TL;DR
 
